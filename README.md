@@ -1,61 +1,286 @@
-# 🚀 Getting started with Strapi
+# 🚀 Vortiq CMS
 
-Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/dev-docs/cli) (CLI) which lets you scaffold and manage your project in seconds.
+Vortiq CMS adalah Content Management System yang dibangun menggunakan **Strapi v5.23.0** untuk mengelola konten website perusahaan dengan fitur-fitur modern dan fleksibel.
 
-### `develop`
+## 📋 Daftar Isi
 
-Start your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-develop)
+- [Fitur Utama](#-fitur-utama)
+- [Teknologi yang Digunakan](#-teknologi-yang-digunakan)
+- [Struktur Proyek](#-struktur-proyek)
+- [Persyaratan Sistem](#-persyaratan-sistem)
+- [Instalasi](#-instalasi)
+- [Konfigurasi](#-konfigurasi)
+- [Penggunaan](#-penggunaan)
+- [API Endpoints](#-api-endpoints)
+- [Content Types](#-content-types)
+- [Deployment](#-deployment)
+- [Kontribusi](#-kontribusi)
+
+## ✨ Fitur Utama
+
+### 🎯 Content Management
+- **Artikel & Blog**: Sistem manajemen artikel dengan kategori dan penulis
+- **Produk**: Manajemen katalog produk dengan detail lengkap
+- **Layanan**: Pengelolaan layanan perusahaan dengan komponen yang dapat digunakan kembali
+- **Halaman Statis**: Home, About, Contact, Footer, dan halaman lainnya
+
+### 🎨 Komponen Dinamis
+- **Dynamic Zones**: Konten yang dapat disesuaikan dengan komponen seperti media, quote, rich-text, dan slider
+- **Reusable Components**: Komponen yang dapat digunakan kembali untuk features, capabilities, dan services
+- **Media Management**: Upload dan manajemen file gambar, video, dan dokumen
+
+### 🔧 Fitur Teknis
+- **Draft & Publish**: Sistem draft untuk preview konten sebelum dipublikasikan
+- **SEO Ready**: Dukungan meta tags dan SEO optimization
+- **Multi-database Support**: SQLite (default), PostgreSQL, MySQL
+- **API Documentation**: Dokumentasi API otomatis
+- **User Permissions**: Sistem role dan permission yang fleksibel
+
+## 🛠 Teknologi yang Digunakan
+
+- **Backend**: Strapi v5.23.0
+- **Database**: SQLite (default), PostgreSQL, MySQL
+- **Node.js**: v18.0.0 - v22.x.x
+- **Package Manager**: npm v6.0.0+
+- **Plugins**:
+  - `@strapi/plugin-users-permissions`
+  - `@strapi/plugin-documentation`
+  - `@strapi/plugin-cloud`
+  - `strapi-v5-plugin-populate-deep`
+
+## 📁 Struktur Proyek
 
 ```
+vortiq_cms/
+├── profile-be/                 # Backend Strapi
+│   ├── config/                 # Konfigurasi aplikasi
+│   │   ├── admin.js           # Konfigurasi admin panel
+│   │   ├── api.js             # Konfigurasi API
+│   │   ├── database.js        # Konfigurasi database
+│   │   ├── middlewares.js     # Middleware
+│   │   ├── plugins.js         # Plugin configuration
+│   │   └── server.js          # Server configuration
+│   ├── src/
+│   │   ├── api/               # API endpoints
+│   │   │   ├── article/       # Artikel management
+│   │   │   ├── product/       # Produk management
+│   │   │   ├── services/      # Layanan management
+│   │   │   ├── home/          # Halaman home
+│   │   │   ├── about/         # Halaman about
+│   │   │   ├── contact/       # Halaman contact
+│   │   │   └── ...            # Content types lainnya
+│   │   ├── components/        # Komponen yang dapat digunakan kembali
+│   │   │   └── shared/        # Komponen shared
+│   │   └── extensions/        # Ekstensi Strapi
+│   ├── data/                  # Data seed dan uploads
+│   ├── scripts/               # Script utilitas
+│   └── package.json           # Dependencies
+```
+
+## 💻 Persyaratan Sistem
+
+- **Node.js**: v18.0.0 - v22.x.x
+- **npm**: v6.0.0 atau lebih tinggi
+- **Database**: SQLite (default), PostgreSQL, atau MySQL
+- **RAM**: Minimal 2GB
+- **Storage**: Minimal 1GB ruang kosong
+
+## 🚀 Instalasi
+
+### 1. Clone Repository
+```bash
+git clone <repository-url>
+cd vortiq_cms/profile-be
+```
+
+### 2. Install Dependencies
+```bash
+npm install
+```
+
+### 3. Setup Environment Variables
+Buat file `.env` di root direktori `profile-be`:
+
+```env
+# Database Configuration
+DATABASE_CLIENT=sqlite
+DATABASE_FILENAME=.tmp/data.db
+
+# Untuk PostgreSQL (opsional)
+# DATABASE_CLIENT=postgres
+# DATABASE_HOST=localhost
+# DATABASE_PORT=5432
+# DATABASE_NAME=strapi
+# DATABASE_USERNAME=strapi
+# DATABASE_PASSWORD=strapi
+
+# Server Configuration
+HOST=0.0.0.0
+PORT=1337
+
+# App Keys (generate dengan: node -e "console.log(require('crypto').randomBytes(16).toString('base64'))")
+APP_KEYS=your-app-keys-here
+```
+
+### 4. Seed Data (Opsional)
+```bash
+npm run seed:example
+```
+
+## ⚙️ Konfigurasi
+
+### Database Configuration
+CMS ini mendukung multiple database:
+
+- **SQLite** (default): Untuk development
+- **PostgreSQL**: Untuk production
+- **MySQL**: Alternatif production
+
+### Server Configuration
+- **Host**: 0.0.0.0 (default)
+- **Port**: 1337 (default)
+- **Environment**: development/production
+
+## 🎮 Penggunaan
+
+### Development Mode
+```bash
 npm run develop
-# or
-yarn develop
+# atau
+npm run dev
 ```
 
-### `start`
-
-Start your Strapi application with autoReload disabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-start)
-
-```
-npm run start
-# or
-yarn start
-```
-
-### `build`
-
-Build your admin panel. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-build)
-
-```
+### Production Mode
+```bash
 npm run build
-# or
-yarn build
+npm run start
 ```
 
-## ⚙️ Deployment
+### Admin Panel
+Akses admin panel di: `http://localhost:1337/admin`
 
-Strapi gives you many possible deployment options for your project including [Strapi Cloud](https://cloud.strapi.io). Browse the [deployment section of the documentation](https://docs.strapi.io/dev-docs/deployment) to find the best solution for your use case.
-
+### API Console
+```bash
+npm run console
 ```
-yarn strapi deploy
+
+## 🔗 API Endpoints
+
+### Public Endpoints
+- `GET /api/articles` - Daftar artikel
+- `GET /api/articles/:id` - Detail artikel
+- `GET /api/products` - Daftar produk
+- `GET /api/services` - Daftar layanan
+- `GET /api/categories` - Daftar kategori
+- `GET /api/authors` - Daftar penulis
+
+### Admin Endpoints
+- `POST /api/articles` - Buat artikel baru
+- `PUT /api/articles/:id` - Update artikel
+- `DELETE /api/articles/:id` - Hapus artikel
+
+## 📝 Content Types
+
+### 1. Article
+- **Fields**: title, description, slug, cover, author, category, blocks
+- **Features**: Draft/Publish, SEO-friendly URLs, Dynamic content blocks
+
+### 2. Product
+- **Fields**: id_content, title, description, dashboardImage, icon, details, data
+- **Features**: Media management, Component-based details
+
+### 3. Services
+- **Fields**: data (repeatable services2 component)
+- **Features**: Nested components, Card-based layout
+
+### 4. Home
+- **Fields**: Judul, subjudul, narasi
+- **Features**: Rich text content
+
+### 5. Global
+- **Fields**: Site settings, SEO configuration
+- **Features**: Site-wide configuration
+
+## 🚀 Deployment
+
+### Strapi Cloud
+```bash
+npm run deploy
 ```
 
-## 📚 Learn more
+### Manual Deployment
+1. Build aplikasi:
+```bash
+npm run build
+```
 
-- [Resource center](https://strapi.io/resource-center) - Strapi resource center.
-- [Strapi documentation](https://docs.strapi.io) - Official Strapi documentation.
-- [Strapi tutorials](https://strapi.io/tutorials) - List of tutorials made by the core team and the community.
-- [Strapi blog](https://strapi.io/blog) - Official Strapi blog containing articles made by the Strapi team and the community.
-- [Changelog](https://strapi.io/changelog) - Find out about the Strapi product updates, new features and general improvements.
+2. Setup production environment variables
 
-Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/strapi). Your feedback and contributions are welcome!
+3. Start aplikasi:
+```bash
+npm run start
+```
 
-## ✨ Community
+### Docker Deployment
+```dockerfile
+FROM node:18-alpine
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --only=production
+COPY . .
+RUN npm run build
+EXPOSE 1337
+CMD ["npm", "run", "start"]
+```
 
-- [Discord](https://discord.strapi.io) - Come chat with the Strapi community including the core team.
-- [Forum](https://forum.strapi.io/) - Place to discuss, ask questions and find answers, show your Strapi project and get feedback or just talk with other Community members.
-- [Awesome Strapi](https://github.com/strapi/awesome-strapi) - A curated list of awesome things related to Strapi.
+## 🔧 Customization
+
+### Menambah Content Type Baru
+1. Buat folder baru di `src/api/`
+2. Definisikan schema di `content-types/`
+3. Buat controller, routes, dan services
+4. Restart aplikasi
+
+### Menambah Komponen Shared
+1. Buat file JSON di `src/components/shared/`
+2. Definisikan struktur komponen
+3. Gunakan di content types yang diinginkan
+
+## 📚 Dokumentasi API
+
+Dokumentasi API otomatis tersedia di:
+- Development: `http://localhost:1337/documentation`
+- Production: `https://your-domain.com/documentation`
+
+## 🤝 Kontribusi
+
+1. Fork repository
+2. Buat feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit perubahan (`git commit -m 'Add some AmazingFeature'`)
+4. Push ke branch (`git push origin feature/AmazingFeature`)
+5. Buat Pull Request
+
+## 📄 Lisensi
+
+Proyek ini menggunakan lisensi MIT. Lihat file `LICENSE` untuk detail lebih lanjut.
+
+## 🆘 Support
+
+Jika mengalami masalah atau memiliki pertanyaan:
+
+1. Cek [dokumentasi Strapi](https://docs.strapi.io)
+2. Buat issue di repository ini
+3. Hubungi tim development
+
+## 🔄 Changelog
+
+### v1.0.0
+- Initial release
+- Basic content management
+- Article, Product, Services management
+- Admin panel setup
+- API documentation
 
 ---
 
-<sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
+**Dibuat dengan ❤️ menggunakan Strapi**
