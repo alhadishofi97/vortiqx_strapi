@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ourservices",
+  "info": {
+    "singularName": "services",
+    "pluralName": "ourservices",
+    "displayName": "Services"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "data": {
+      "type": "component",
+      "component": "shared.services2",
+      "repeatable": true
+    }
+  }
+}

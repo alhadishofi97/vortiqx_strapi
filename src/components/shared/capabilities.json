@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_shared_capabilities",
+  "info": {
+    "displayName": "capabilities"
+  },
+  "options": {},
+  "attributes": {
+    "list": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

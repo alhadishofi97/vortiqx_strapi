@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "footer2s",
+  "info": {
+    "singularName": "footer2",
+    "pluralName": "footer2s",
+    "displayName": "footer2"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "judul": {
+      "type": "string"
+    },
+    "narasi": {
+      "type": "richtext"
+    }
+  }
+}

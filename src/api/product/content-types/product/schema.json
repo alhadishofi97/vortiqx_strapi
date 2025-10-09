@@ -1,0 +1,53 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "singularName": "product",
+    "pluralName": "products",
+    "displayName": "product"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "id_content": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "dashboardImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "icon": {
+      "type": "text"
+    },
+    "details": {
+      "type": "component",
+      "component": "shared.details",
+      "repeatable": false
+    },
+    "data": {
+      "type": "component",
+      "component": "shared.more-detail",
+      "repeatable": true
+    },
+    "judul2": {
+      "type": "string"
+    },
+    "subjudul2": {
+      "type": "text"
+    }
+  }
+}

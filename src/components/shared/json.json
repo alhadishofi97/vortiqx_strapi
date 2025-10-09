@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_jsons",
+  "info": {
+    "displayName": "datajson"
+  },
+  "options": {},
+  "attributes": {
+    "judul": {
+      "type": "string"
+    },
+    "desc": {
+      "type": "text"
+    },
+    "data": {
+      "type": "json"
+    }
+  },
+  "config": {}
+}
