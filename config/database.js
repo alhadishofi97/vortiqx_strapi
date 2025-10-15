@@ -1,6 +1,7 @@
 const path = require('path');
 
 module.exports = ({ env }) => {
+  // Use SQLite as default for deployment compatibility
   const client = env('DATABASE_CLIENT', 'sqlite');
 
   const connections = {
