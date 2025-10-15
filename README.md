@@ -284,3 +284,4 @@ Jika mengalami masalah atau memiliki pertanyaan:
 ---
 
 **Dibuat dengan ❤️ menggunakan Strapi**
+# vortiqx_strapi
