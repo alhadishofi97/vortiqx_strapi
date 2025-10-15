@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_shared_services2s",
+  "info": {
+    "displayName": "services2"
+  },
+  "options": {},
+  "attributes": {
+    "judul": {
+      "type": "string"
+    },
+    "desc": {
+      "type": "text"
+    },
+    "cards": {
+      "type": "component",
+      "component": "shared.cardservices",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

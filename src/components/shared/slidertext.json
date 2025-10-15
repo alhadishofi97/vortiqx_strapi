@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_shared_slidertexts",
+  "info": {
+    "displayName": "slidertext"
+  },
+  "options": {},
+  "attributes": {
+    "slidertext": {
+      "type": "component",
+      "component": "shared.quote",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

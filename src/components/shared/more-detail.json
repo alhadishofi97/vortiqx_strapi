@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_shared_more_details",
+  "info": {
+    "displayName": "moreDetail"
+  },
+  "options": {},
+  "attributes": {
+    "img": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "judul": {
+      "type": "string"
+    },
+    "narasi": {
+      "type": "richtext"
+    },
+    "fitur": {
+      "type": "richtext"
+    }
+  },
+  "config": {}
+}

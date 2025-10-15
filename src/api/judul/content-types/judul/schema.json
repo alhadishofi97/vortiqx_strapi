@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "juduls",
+  "info": {
+    "singularName": "judul",
+    "pluralName": "juduls",
+    "displayName": "judul"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nama": {
+      "type": "string"
+    },
+    "alamat": {
+      "type": "text"
+    }
+  }
+}

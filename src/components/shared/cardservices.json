@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_shared_cardservices",
+  "info": {
+    "displayName": "cardservices"
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "shortDescription": {
+      "type": "text"
+    },
+    "fullDescription": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}
